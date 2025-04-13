@@ -19,3 +19,6 @@ panic = "abort"
 
 [dependencies]
 jlrs = {version = "0.21", features = ["local-rt"]}
+
+[target.linux]
+rustflags = [ "-C", "link-args=-rdynamic" ]
