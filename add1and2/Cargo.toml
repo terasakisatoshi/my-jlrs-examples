@@ -1,0 +1,24 @@
+[package]
+name = "julia_example1"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+julia-1-6 = ["jlrs/julia-1-6"]
+julia-1-7 = ["jlrs/julia-1-7"]
+julia-1-8 = ["jlrs/julia-1-8"]
+julia-1-9 = ["jlrs/julia-1-9"]
+julia-1-10 = ["jlrs/julia-1-10"]
+julia-1-11 = ["jlrs/julia-1-11"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[dependencies]
+jlrs = {version = "0.21", features = ["local-rt"]}
+
+[target.linux]
+rustflags = [ "-C", "link-args=-rdynamic" ]
