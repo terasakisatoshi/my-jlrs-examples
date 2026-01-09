@@ -1,0 +1,18 @@
+[package]
+name = "rust_from_julia_example"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+panic = "abort"
+
+[profile.dev]
+panic = "abort"
+
+[dependencies]
+jlrs = { version = "0.22.1", features = ["ccall", "jlrs-derive"] }
